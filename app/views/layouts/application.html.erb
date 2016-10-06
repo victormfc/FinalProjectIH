@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Greatlearn</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <header>
+  <div id="top_botons">
+    <div><img id="tp1" style="width: 50px; height: 55px;" src="logo.png"/></div>
+  
+    <div id="tp2">
+      <% if student_signed_in? %>
+        <p><%= link_to 'Sign out', destroy_student_session_path, method:'DELETE' %></p>
+      <% else %> 
+        <p>
+          <%= link_to 'Sign_up as student', new_student_registration_path %> |
+          <%= link_to 'Sign_in as student', new_student_session_path %>
+        </p>
+      <% end %>
+    </div>
+    
+    <div id="tp3">
+      <% if teacher_signed_in? %>
+        <p><%= link_to 'Sign out', destroy_teacher_session_path, method:'DELETE' %></p>
+      <% else %> 
+        <p>
+          <%= link_to 'Sign_up as teacher', new_teacher_registration_path %> |
+          <%= link_to 'Sign_in as teacher', new_teacher_session_path %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</header>
+  <body>
+    <%= yield %>
+  </body>
+</html>

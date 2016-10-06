@@ -1,0 +1,22 @@
+<% if @sport.teachers.present? %>
+	<h1>Este es el listado de profesores de <%= @sport.name.titleize %></h1>
+<% else %>
+	<h1>Lo sentimos, actualmente no hay profesores de <%= @sport.name.titleize %> disponibles.</h1>
+<% end %>
+
+<% @sport.teachers.each do |teacher| %>
+	<ul>
+		<li>Teacher: <%= teacher.name %></li>
+		<li>Descripcion del profesor: <%= teacher.description %></li>
+		<% if @student %>
+			<li><%= @student.name.titleize %></li> 
+		<%end%>
+
+	<%= button_to "Solicita ahora tu clase!", appointments_path(teacher_id: teacher.id, sport_id: @sport.id), method: :post %>
+	</ul>
+	<br><br>
+<% end %>	
+
+		
+
+<%= button_to "Elige otro deporte", :back, method: :get %>

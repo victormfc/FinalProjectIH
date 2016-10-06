@@ -1,0 +1,46 @@
+<!-- <h4>Hola, <%= @appointment.teacher.name %></h4> 
+<h3>Tienes una nueva peticion de clase, a continuacion puedes ver todos los detalles</h3>
+
+<ul>	
+	<li> Sport: <%= @appointment.sport.name %></li>
+	<p> El nombre del estudiante es el siguiente</p>
+	<li> Student: <%= @appointment.student.name %></li>
+	<p> la fecha para tu clase es:</p>
+	<li> Fecha: <%= @appointment.date %></li>
+	<p> Confirma tu clase en el siguiente botón %></p>
+	<%= button_to "Confirma tu clase!", "/student_profile/#{@appointment.id}" %>
+		
+</ul> -->
+
+
+<div class='wrap'>
+	<div class="element1">
+		<!-- <div class = "button-search-sport">
+			<%= form_tag search_sport_path, method: 'post' do %>
+		    <%= select_tag :sport, options_for_select(Sport.all.map { |sport| [sport.name.capitalize, sport.id] }) %>
+		    <%= submit_tag 'search'%>
+		 	<% end %>
+		</div> -->
+		<h3>Estas son las clases que tienes pendientes, a continuacion puedes ver todos los detalles</h3>
+		<div class="reservas-teacher" style="color:black;text-align:left;">
+			<% if @appointments.present? %>
+					<h4> Aún no se han confirmado las siguientes reservas:</h4>
+					<% @appointments.each do |appointment| %>
+						<ul>	
+							<li> Sport: <%= appointment.sport.name.titleize %></li>
+							<li> Student: <%= appointment.student.name.titleize %></li>
+							<li> Fecha: <%= appointment.created_at.strftime("%d.%m.%y at %H:%M") %></li>
+							<li> Student age: <%= appointment.student.age %></li> 
+						</ul>
+						
+					<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class= "eleimage"> 
+		<img style="width: 95%; height: 95%;" src="mickfanning.jpg"/>
+	</div>
+</div>​
+
+<div id="bottom_botons"></div>

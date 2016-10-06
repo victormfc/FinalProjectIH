@@ -1,0 +1,23 @@
+<h2>Create your appointment</h2>
+
+<%= form_for(@appointment, url: '/appointments', html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :sport %></br>
+    <%= f.text_field :sport, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %></br>
+    <%= f.text_field :date, autofocus: true %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Create your new apointment" %>
+  </div>
+<% end %>
+
+
+

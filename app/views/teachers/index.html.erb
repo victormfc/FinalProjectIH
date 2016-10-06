@@ -1,0 +1,16 @@
+<h4>Este es el indice de profesores</h4>
+<p>Deberán aparecer todos los profesores</p>
+
+
+<ul>
+	<% @teachers.each do |teacher| %>
+
+	    <br>           
+		<li>Name: <%= teacher.name %></li> 
+		<li>Description: <%= teacher.description %></li>
+		<li>Deporte: <%= teacher.sport %></li>
+		------------------------------------------------
+
+	<% end %>
+</ul>
+

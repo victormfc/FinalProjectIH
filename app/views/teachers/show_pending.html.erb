@@ -1,0 +1,23 @@
+
+<h1>Hola <%= @teacher.name %>, bienvenido a tu perfil</h1>
+<p>El mail con el que apareces en la plataforma es: <%= @teacher.email %></p>
+<h3>En el siguiente botón podrás ver el listado de clases que tienes confirmadas</h3>
+<%= button_to "clases confirmadas!", confirmed_appointments_path(@teacher), method: :get %>
+<h3>Este es el listado de clases que tienes pendientes</h3>
+
+	<% if @appointments.present? %>
+		<h4> Aún no se han confirmado las siguientes reservas:</h4>
+			<% @appointments.each do |appointment| %>
+				<ul>	
+					<li> Sport: <%= appointment.sport.name.titleize %></li>
+					<li> Student: <%= appointment.student.name.titleize %></li>
+					<li> Fecha: <%= appointment.created_at.strftime("%d.%m.%y at %H:%M") %></li>
+					<li> Student age: <%= appointment.student.age %></li> 
+					</ul>
+				<%= button_to "Confirma tu clase!", edit_appointment_path(appointment), method: :get %>	
+				<% end %>
+		<% end %>
+	</div>
+	<%= button_to "Vuelve a la home!", root_path, method: :get %>	
+</div>
+

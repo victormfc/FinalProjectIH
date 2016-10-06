@@ -1,0 +1,35 @@
+<div class='wrap'>
+	<div class="element1">
+		<div class = "imagelhome">
+		<img style="width: 98%; height: 98%;" src="rsz_climbing.jpg"/>
+	    </div>
+	    <h3 class ="phome"> Aprende con los mejores cada uno de estos deportes </h2>
+		<div class = "button-search-sport">
+			<%= form_tag search_sport_path, method: 'post' do %>
+		    <%= select_tag :sport, options_for_select(Sport.all.map { |sport| [sport.name.capitalize, sport.id] }) %>
+		    <%= submit_tag 'search'%>
+		 	<% end %>
+		</div>
+	</div>
+		
+	<div class= "eleimage"> 
+		<img style="width: 98%; height: 95%;" src="mickfanning.jpg"/>
+	</div>
+</div>​
+
+<div id="bottom_botons">
+<div id = "bottom">
+  <img src="tenis.png" width="350" height="150"  class="left" />
+  <img src="basket.png" width="350" height="150"  class="right" />
+  <img src="padel.png" width="350" height="150" />
+</div>
+
+
+
+</div>
+</div>
+
+			
+	
+	
+

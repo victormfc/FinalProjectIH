@@ -1,0 +1,39 @@
+<h2>Hola <%= current_student.name %>!</h2>
+<p>
+<strong>Email:</strong> <%= current_student.email %>
+</p>
+<h3> Selecciona el deporte que quieres aprender </h3>
+
+	<div>
+			<%= form_tag search_sport_path, method: 'post' do %>
+		    <%= select_tag :sport, options_for_select(Sport.all.map { |sport| [sport.name.capitalize, sport.id] }) %>
+		    <%= submit_tag 'search'%>
+		 	<% end %>
+	</div>
+	</div>
+		<% if @confirmed_appointments.present? %>
+				<h3> Este es el listado de clases que tienes confirmadas </h3>
+				<% @confirmed_appointments.each do |appointment| %>
+					<ul>	
+						<li> Sport: <%= appointment.sport.name.titleize %></li>
+						<li> Teacher: <%= appointment.teacher.name.titleize %></li>
+						<li> Fecha: <%= appointment.created_at.strftime("%d.%m.%y at %H:%M") %></li>
+						<li> Teacher age: <%= appointment.teacher.age %></li> 
+					</ul>
+				<% end %>
+		<% end %>
+	</div>
+
+<% if @pending_appointments.present? %>
+		<h3> Tienes a la espera de confirmación las siguientes clases:</h3>
+			<% @pending_appointments.each do |appointment| %>
+				<ul>	
+					<li> Sport: <%= appointment.sport.name.titleize %></li>
+					<li> Teacher: <%= appointment.teacher.name.titleize %></li>
+					<li> Fecha: <%= appointment.created_at.strftime("%d.%m.%y at %H:%M") %></li>
+					<li> Description: <%= appointment.teacher.description %></li> 
+					</ul>	
+				<% end %>
+				<%= button_to "Vuelve a la home!", root_path, method: :get %>
+		<% end %>
+	</div>

@@ -1,0 +1,9 @@
+<h4>Hola, <%= @appointment.teacher.name %></h4> 
+<h3>Tienes tu clase confirmada con,  </h3>
+<h2>La fecha es:</h2>
+<ul>
+			<li> Fecha: <%= @appointment.date %></li>
+			<p> Confirma tu clase en el siguiente botón %></p>
+			<%= button_to "Confirma tu clase!", "/student_profile/" %>
+</ul>
+<h3>Disfrutala!</h3>		

@@ -1,0 +1,30 @@
+<div class='wrap'>
+	<div class="element1">
+		<!-- <div class = "button-search-sport">
+			<%= form_tag search_sport_path, method: 'post' do %>
+		    <%= select_tag :sport, options_for_select(Sport.all.map { |sport| [sport.name.capitalize, sport.id] }) %>
+		    <%= submit_tag 'search'%>
+		 	<% end %>
+		</div> -->
+		<div class="reservas" style="color:black;text-align:left;">
+			<% if @appointments.present? %>
+					<h4> Tienes estas reservas a la espera de ser confirmadas por el profesor:</h4>
+					<% @appointments.each do |appointment| %>
+						<ul>	
+							<li> Sport: <%= appointment.sport.name.titleize %></li>
+							<li> Teacher: <%= appointment.teacher.name.titleize %></li>
+							<li> Fecha: <%= appointment.created_at.strftime("%d.%m.%y at %H:%M") %></li>
+							<li> Teacher description: <%= appointment.teacher.description %></li> 
+						</ul>
+						
+					<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class= "eleimage"> 
+		<img style="width: 95%; height: 95%;" src="mickfanning.jpg"/>
+	</div>
+</div>​
+
+<div id="bottom_botons"></div>
