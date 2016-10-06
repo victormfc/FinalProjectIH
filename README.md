@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -26,3 +27,6 @@ Things you may want to cover:
 =======
 # Udoit
 >>>>>>> ef8db5bf152dbd9c65305507b5a44deaf2f884f0
+=======
+# FinalProjectIH
+>>>>>>> 706a5b0bb204c5aab229d4140710a462395da8a0
